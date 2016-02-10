@@ -1,0 +1,19 @@
+@color: rgb(255, 69, 69);
+@link-color: rgb(255, 69, 69);
+
+a {
+    .fancy-text();
+    color: @color;
+    transition: all 225ms ease 0ms;
+
+    &:hover,
+    &:focus {
+        color: lighten(@link-color, 50%);
+    }
+}
+
+.fancy-text() {
+    font-family: 'Some fancy font';
+    font-style: italic;
+    font-weight: 700;
+}

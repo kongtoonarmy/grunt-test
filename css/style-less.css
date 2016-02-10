@@ -1,0 +1,11 @@
+a {
+  font-family: 'Some fancy font';
+  font-style: italic;
+  font-weight: 700;
+  color: #ff4545;
+  transition: all 225ms ease 0ms;
+}
+a:hover,
+a:focus {
+  color: #ffffff;
+}

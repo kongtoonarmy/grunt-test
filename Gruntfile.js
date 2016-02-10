@@ -17,13 +17,26 @@ module.exports = function(grunt) {
                     'dist/index.html': ['index.html']                
                 }
             }
+        },
+
+        less: {
+            development: {
+                options: {
+                    paths: ["less/source.less"]
+                },
+                files: {
+                    "css/style-less.css": "less/source.less"
+                }
+            }
         }
+
     });
  
     // Load plugin
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-less');
  
     // Set default task
-    grunt.registerTask('default', ['uncss', 'processhtml']);
+    grunt.registerTask('default', ['uncss', 'processhtml', 'less']);
 };
