@@ -1,7 +1,10 @@
 module.exports = function(grunt) {
 
+    var globalConfig = require('./config.js');
+
     grunt.initConfig({
 
+        config: globalConfig,
         uncss: {
             dist: {
                 files: {
@@ -40,7 +43,7 @@ module.exports = function(grunt) {
         copy: {
             html: {
                 files: [
-                    {src: 'index.html', dest: 'build/'}
+                    {src: '<%= config.fileName %>', dest: '<%= config.buildDir %>/'}
                 ]
             }
         }
