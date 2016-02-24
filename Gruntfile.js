@@ -2,9 +2,7 @@ module.exports = function(grunt) {
 
     var globalConfig = require('./config.js');
 
-    grunt.initConfig({
-
-        config: globalConfig,
+    var taskConfig = {
         uncss: {
             dist: {
                 files: {
@@ -43,12 +41,14 @@ module.exports = function(grunt) {
         copy: {
             html: {
                 files: [
-                    {src: '<%= config.fileName %>', dest: '<%= config.buildDir %>/'}
+                    {src: '<%= fileName %>', dest: '<%= buildDir %>/'}
                 ]
             }
         }
+    };
 
-    });
+    console.log(taskConfig, globalConfig);
+    grunt.initConfig(grunt.util._.extend(taskConfig, globalConfig));
 
     // Load plugin
     grunt.loadNpmTasks('grunt-uncss');
