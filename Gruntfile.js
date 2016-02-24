@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
- 
+
     grunt.initConfig({
 
-        uncss: { 
+        uncss: {
             dist: {
                 files: {
                     'css/tidy.css': ['index.html']
-                } 
+                }
             }
         },
 
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     // Process then save a new file to be dist/index.html
-                    'dist/index.html': ['index.html']                
+                    'dist/index.html': ['index.html']
                 }
             }
         },
@@ -35,16 +35,25 @@ module.exports = function(grunt) {
                 files: ['less/*.less'],
                 tasks: ['less']
             }
+        },
+
+        copy: {
+            html: {
+                files: [
+                    {src: 'index.html', dest: 'build/'}
+                ]
+            }
         }
 
     });
- 
+
     // Load plugin
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
- 
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
     // Set default task
     grunt.registerTask('default', ['uncss', 'processhtml', 'less']);
 };
